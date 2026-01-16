@@ -51,22 +51,20 @@ def setup_seed(seed):
 def run():
     parser = argparse.ArgumentParser()
     parser.add_argument("--seed", type=int, default=42)
-    parser.add_argument("--device", type=str, default='cuda:1')
+    parser.add_argument("--device", type=str, default='cuda')
     parser.add_argument('--dset_name', type=str, default='cs', help='dataset name')
     parser.add_argument('--epochs', type=int, default=200, help='Training epoch')
-    parser.add_argument('--batch_size', type=int, default=512, help='Batch size for training')
-    parser.add_argument('--drop_out', type=float, default=0.0, help='Dropout rate')
     parser.add_argument('--lr', type=float, default=0.001, help='learning rate')
     parser.add_argument('--weight_decay', type=float, default=5e-4, help='Weight decay.')
     parser.add_argument('--train_ratio', default='0.05', type=float, help='train_ratio')
-    parser.add_argument('--num_anomaly', default='50', type=int, help='num_anomaly')
+    parser.add_argument('--num_anomaly', default='50', type=int, help='num of seen anomalies')
     parser.add_argument('--hidden_dim', type=int, default=32, help='dimension of hidden embedding')
-    parser.add_argument('--n_layers', type=int, default=3, help='number of GNN layers')
+    parser.add_argument('--n_layers', type=int, default=3, help='number of GNN layers of pretraining GNN')
     parser.add_argument('--view', type=str, default='net_rur', help='the view of dataset')
     parser.add_argument('--eta', type=float, default=1.0, help='Gaussian perturbation scale for vice model')
     parser.add_argument('--pretrain', type = str, default='simgrace', help='pretrain model')
-    parser.add_argument('--alpha', type=float, default=2.0, help='margin for prototype separation')
-    parser.add_argument('--lambda_weight', type=float, default=1.0, help='weight for anomaly term in loss')
+    parser.add_argument('--alpha', type=float, default=2.0, help='margin')
+    parser.add_argument('--lambda_weight', type=float, default=1.0, help='co-efficient')
     parser.add_argument('--prompt_lr', type=float, default=0.001, help='learning rate for prompt training')
     parser.add_argument('--prompt_epochs', type=int, default=200, help='epochs for prompt training')
     parser.add_argument("--num_prompts", type=int, default=10, help='number of prompts to train')
@@ -100,3 +98,4 @@ def run():
 
 if __name__ == "__main__":
     run()
+
