@@ -68,7 +68,7 @@ def run():
     parser.add_argument('--prompt_lr', type=float, default=0.001, help='learning rate for prompt training')
     parser.add_argument('--prompt_epochs', type=int, default=200, help='epochs for prompt training')
     parser.add_argument("--num_prompts", type=int, default=10, help='number of prompts to train')
-    parser.add_argument('--epsilon', type=float, default=0.3, help='conformal p-value threshold (0,1)')
+    parser.add_argument('--epsilon', type=float, default=0.01, help='conformal p-value threshold (0,1)')
 
     args = parser.parse_args()
 
